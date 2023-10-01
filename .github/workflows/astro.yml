@@ -21,10 +21,12 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
 
+      - name: Install pnpm
+        run: curl -f https://get.pnpm.io/v6.js | node - add pnpm@latest
+        
       - name: Install pnpm and sharp
-        run: |
-          curl -f https://get.pnpm.io/v6.js | node - add pnpm@latest
-          pnpm add sharp
+        run: pnpm add sharp
+        
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
