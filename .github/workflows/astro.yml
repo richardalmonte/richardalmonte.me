@@ -4,7 +4,7 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
   push:
-    branches: [master]
+    branches: [ master ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -20,6 +20,11 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
+
+      - name: Install pnpm and sharp
+        run: |
+          curl -f https://get.pnpm.io/v6.js | node - add pnpm@latest
+          pnpm add sharp
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
