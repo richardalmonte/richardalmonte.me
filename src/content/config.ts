@@ -1,25 +1,14 @@
-import {defineCollection, z} from 'astro:content';
-
-const authorsCollection = defineCollection({
-    schema: ({image}) =>
-        z.object({
-            name: z.string(),
-            image: image(),
-        }),
-})
-
-const postsCollection = defineCollection({
-    schema: ({image}) =>
-        z.object({
-            author: z.string(),
-            categories: z.array(z.string()),
-            date: z.string(),
-            image: image(),
-            title: z.string(),
-        }),
-});
+import { defineCollection, z } from 'astro:content';
 
 export const collections = {
-    authors: authorsCollection,
-    posts: postsCollection,
+	work: defineCollection({
+		schema: z.object({
+			title: z.string(),
+			description: z.string(),
+			publishDate: z.coerce.date(),
+			tags: z.array(z.string()),
+			img: z.string(),
+			img_alt: z.string().optional(),
+		}),
+	}),
 };

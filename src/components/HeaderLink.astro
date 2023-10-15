@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class="text-teal-900 font-bold">
+  <slot />
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: var(--teal-900);
+    font-weight: bold;
+    padding: 1em 0.5em;
+    border-bottom: 4px solid transparent;
+  }
+
+  a.active {
+    border-bottom-color: var(--accent);
+  }
+</style>
