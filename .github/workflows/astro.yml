@@ -24,6 +24,8 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
             bun-version: latest
+
+      - run: bun add sqlite3
       - run: bun install
       
       - name: Install, build, and upload your site
