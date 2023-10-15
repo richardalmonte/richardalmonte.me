@@ -7,17 +7,22 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "postinstall": "cd node_modules/sharp && bun install && cd ../.. && cd node_modules/sqlite3 && bun install && cd ../.."
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "astro": "^3.2.0",
+    "@astrojs/mdx": "^1.1.2",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.1",
+    "@astrojs/tailwind": "^5.0.2",
+    "astro": "^3.3.0",
+    "sharp": "^0.32.6",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0"
-  }
+    "bun-types": "latest"
+  },
+  "trustedDependencies": [
+    "sharp"
+  ]
 }
